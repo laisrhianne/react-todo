@@ -1,14 +1,15 @@
 import React from 'react';
 import Todo from './Todo';
 
-function TodoList({ todos }) {
+function TodoList({ todos, toggleComplete }) {
     return (
         <ul>
+            {/* For each todo in todos, generates a Todo component */}
             {todos.map(todo => (
-                <Todo key={todo.id} todo={todo} />
+                <Todo key={todo.id} todo={todo} toggleComplete={toggleComplete} />
             ))}
         </ul>
-    )
+    );
 }
 
 export default TodoList;
