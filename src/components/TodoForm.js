@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 function TodoForm({ addTodo }) {
     const [todo, setTodo] = useState({
@@ -17,7 +17,7 @@ function TodoForm({ addTodo }) {
         e.preventDefault();
         if (todo.task.trim()) {
             // adds todo to the array of todos
-            addTodo({...todo, id: uuid.v4() });
+            addTodo({...todo, id: uuidv4() });
             // resets task input
             setTodo({...todo, task: '' });
         }
