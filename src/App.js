@@ -29,11 +29,14 @@ function App() {
             ...todo,
             completed: !todo.completed,
           };
-
         }
         return todo;
       })
     );
+  }
+
+  function removeTodo(id) {
+    setTodos(todos.filter((todo) => todo.id !== id));
   }
 
   return (
@@ -41,7 +44,11 @@ function App() {
       <header className='App-header'>
         <p>React Todo</p>
         <TodoForm addTodo={addTodo} />
-        <TodoList todos={todos} toggleComplete={toggleComplete} />
+        <TodoList 
+          todos={todos} 
+          toggleComplete={toggleComplete}
+          removeTodo={removeTodo}
+        />
       </header>
     </div>
   );
