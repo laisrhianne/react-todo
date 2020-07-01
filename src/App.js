@@ -42,7 +42,7 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <p>React Todo</p>
+        <h1 style={styles.title}>React Todo</h1>
         <TodoForm addTodo={addTodo} />
         <TodoList 
           todos={todos} 
@@ -52,6 +52,12 @@ function App() {
       </header>
     </div>
   );
+}
+
+const styles = {
+  title: {
+    padding: 16,
+  }
 }
 
 export default App;
