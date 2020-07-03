@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 function TodoForm({ addTodo }) {
+  // adds state to function (todo)
   const [todo, setTodo] = useState({
     id: '',
     task: '',
@@ -13,10 +14,11 @@ function TodoForm({ addTodo }) {
     setTodo({ ...todo, task: e.target.value });
   }
 
+  // adds the todo when button is clicked
   function handleSubmit(e) {
     e.preventDefault();
     if (todo.task.trim()) {
-      // adds todo to the array of todos
+      // adds todo to the array of todos with unique id
       addTodo({ ...todo, id: uuidv4() });
       // resets task input
       setTodo({ ...todo, task: '' });

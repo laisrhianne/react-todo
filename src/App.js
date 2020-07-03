@@ -4,8 +4,10 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
 function App() {
+  // add state to the function (todo)
   const [todos, setTodos] = useState([]);
 
+  // retrieves saved todos from local storage
   useEffect(() => {
     const storageTodos = JSON.parse(localStorage.getItem('todos-list'));
     if (storageTodos) {
@@ -13,6 +15,7 @@ function App() {
     }
   }, []);
 
+  // saves the todos in local storage everytime 'todos' changes
   useEffect(() => {
     localStorage.setItem('todos-list', JSON.stringify(todos));
   }, [todos]);
@@ -42,7 +45,7 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1 style={styles.title}>React Todo</h1>
+        <h1 style={styles.title}>To-do List</h1>
         <TodoForm addTodo={addTodo} />
         <TodoList 
           todos={todos} 

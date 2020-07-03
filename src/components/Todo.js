@@ -1,10 +1,12 @@
 import React from 'react';
 
 function Todo({ todo, toggleComplete, removeTodo }) {
+  // toggles the completed property of todo when the checkbox is clicked
   function handleCheckboxClick() {
     toggleComplete(todo.id);
   }
 
+  // removes todo when img remove is clicked
   function handleRemoveClick() {
     removeTodo(todo.id);
   }
